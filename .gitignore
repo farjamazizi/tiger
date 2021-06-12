@@ -1,0 +1,8 @@
+.pytest_cache
+.idea
+data
+tiger.egg-info
+__pycache__
+tiger/__pycache__/
+tiger/models/__pycache__/
+
