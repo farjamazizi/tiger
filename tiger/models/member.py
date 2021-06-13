@@ -35,4 +35,3 @@ class Member(DeclarativeBase):
     age = column_property(date.today().year - extract('year', birth_date))
     fullname = column_property(first_name + ' ' + last_name)
 
-    
