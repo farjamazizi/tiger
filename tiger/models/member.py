@@ -1,20 +1,19 @@
 from datetime import date
 
-from sqlalchemy import Column, String, Date, Integer, select, func, extract
+from sqlalchemy import String, Date, Integer, extract
 from sqlalchemy.orm import column_property, relationship
-from restfulpy.orm import DeclarativeBase, Field, OrderingMixin, \
-    FilteringMixin, PaginationMixin
+from restfulpy.orm import DeclarativeBase, Field
 
 
 class Member(DeclarativeBase):
     __tablename__ = 'member'
 
-    id = Column(Integer, primary_key=True, autoincrement=True)
-    first_name = Column(String)
-    last_name = Column(String)
-    user_name = Column(String, unique=True)
-    password = Column(String)
-    birth_date = Column(Date)
+    id = Field(Integer, primary_key=True, autoincrement=True)
+    first_name = Field(String)
+    last_name = Field(String)
+    user_name = Field(String, unique=True)
+    password = Field(String)
+    birth_date = Field(Date)
 
     messages = relationship(
         'Message',
