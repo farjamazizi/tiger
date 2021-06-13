@@ -1,4 +1,4 @@
-from sqlalchemy import Column, Integer, ForeignKey, Text
+from sqlalchemy import Integer, ForeignKey, Text
 from sqlalchemy.orm import relationship
 from restfulpy.orm import DeclarativeBase, Field
 
