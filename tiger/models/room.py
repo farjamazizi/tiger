@@ -1,27 +1,26 @@
-from sqlalchemy import Column, Integer, ForeignKey, String
+from sqlalchemy import Integer, ForeignKey, String
 from sqlalchemy.orm import relationship
-from restfulpy.orm import DeclarativeBase, Field, OrderingMixin, \
-    FilteringMixin, PaginationMixin
+from restfulpy.orm import DeclarativeBase, Field
 
 
 class RoomMember(DeclarativeBase):
     __tablename__ = 'room_member'
 
-    member_id= Column(Integer, ForeignKey('member.id'), primary_key=True)
-    room_id= Column(Integer, ForeignKey('room.id'), primary_key=True)
+    member_id= Field(Integer, ForeignKey('member.id'), primary_key=True)
+    room_id= Field(Integer, ForeignKey('room.id'), primary_key=True)
 
 
 class RoomAdmin(DeclarativeBase):
     __tablename__ = 'room_admin'
 
-    admin_id= Column(Integer, ForeignKey('member.id'), primary_key=True)
-    room_id= Column(Integer, ForeignKey('room.id'), primary_key=True)
+    admin_id= Field(Integer, ForeignKey('member.id'), primary_key=True)
+    room_id= Field(Integer, ForeignKey('room.id'), primary_key=True)
 
 class Room(DeclarativeBase):
     __tablename__ = 'room'
 
-    id = Column(Integer, primary_key=True)
-    title = Column(String)
+    id = Field(Integer, primary_key=True)
+    title = Field(String)
 
     messages = relationship(
         'Message',
