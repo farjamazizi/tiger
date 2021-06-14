@@ -21,4 +21,14 @@ class Member(DeclarativeBase):
         'Message',
         back_populates='sender',
     )
+    rooms = relationship(
+        'Room',
+        secondary='room_member',
+        back_populates='members',
+    )
+    admin_rooms = relationship(
+        'Room',
+        secondary='room_admin',
+        back_populates='admins',
+    )
 
