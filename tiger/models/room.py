@@ -37,3 +37,4 @@ class Room(DeclarativeBase):
         secondary='room_admin',
         back_populates='admin_rooms',
     )
+
