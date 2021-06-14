@@ -2,6 +2,7 @@ from sqlalchemy import  Integer, String, ForeignKey
 from sqlalchemy.orm import relationship
 from restfulpy.orm import DeclarativeBase, Field
 
+
 class RoomMember(DeclarativeBase):
     __tablename__ = 'room_member'
 
