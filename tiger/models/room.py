@@ -27,12 +27,11 @@ class Room(DeclarativeBase):
         'Message',
         back_populates='room',
     )
-    members=relationship(
+    members = relationship(
         'Member',
         secondary='room_member',
         back_populates='rooms',
     )
-
     admins = relationship(
         'Member',
         secondary='room_admin',
