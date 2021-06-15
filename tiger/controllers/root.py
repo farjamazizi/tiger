@@ -4,6 +4,12 @@ from restfulpy.controllers import RootController, RestController, \
 
 import tiger
 
+from .member import MemberController
+
+
+class Apiv1(RestController, JSONPatchControllerMixin):
+    members = MemberController()
+
 
 class Apiv1(RestController, JSONPatchControllerMixin):
 
