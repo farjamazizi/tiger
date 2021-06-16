@@ -1,9 +1,9 @@
 from nanohttp import json, validate, context, int_or_notfound, HTTPNotFound
 from restfulpy.controllers import ModelRestController
-from restfulpy.orm import  commit, DBSession
+from restfulpy.orm import commit, DBSession
 
 from tiger.models import Member
-from ..exceptions import  *
+from ..exceptions import *
 
 
 class MemberController(ModelRestController):
