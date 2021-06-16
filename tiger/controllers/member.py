@@ -38,6 +38,7 @@ class MemberController(ModelRestController):
         member.update_form_request()
         DBSession.add(member)
         return member
+
     @json
     def get(self, id):
         id = int_or_notfound(id)
@@ -45,6 +46,4 @@ class MemberController(ModelRestController):
         if member is None:
             raise HTTPNotFound()
         return member
-
-
 
