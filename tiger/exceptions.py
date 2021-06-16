@@ -29,4 +29,3 @@ class StatusLastnameIsNull(HTTPKnownStatus):
 class StatusRepetitiveUsername(HTTPKnownStatus):
     status = '400 Username is already exist'
 
-
