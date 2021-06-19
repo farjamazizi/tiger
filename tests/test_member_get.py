@@ -14,6 +14,7 @@ class TestMember(LocalApplicationTestCase):
             user_name = 'username 2',
             first_name = 'firstname 2',
             last_name = 'lastname 2',
+            password = 'Abc111222'
         )
         session.add(cls.member)
         session.commit()

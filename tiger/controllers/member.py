@@ -1,9 +1,14 @@
+import re
+
 from nanohttp import json, validate, context, int_or_notfound, HTTPNotFound
 from restfulpy.controllers import ModelRestController
 from restfulpy.orm import commit, DBSession
 
 from tiger.models import Member
 from ..exceptions import *
+
+
+MEMBER_PASSWORD_PATTERN = re.compile(r'(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).+')
 
 
 class MemberController(ModelRestController):
@@ -24,6 +29,13 @@ class MemberController(ModelRestController):
         ),
         lastName=dict(
             not_none=StatusLastnameIsNull,
+        ),
+        password=dict(
+            required=HTTPPasswordNotInForm,
+            not_none=HTTPPasswordIsNull,
+            min_length=(3, HTTPPasswordInvalidLength),
+            max_length=(15, HTTPPasswordInvalidLength),
+            pattern=(MEMBER_PASSWORD_PATTERN, HTTPPasswordWrongPattern),
         ),
     )
     @commit

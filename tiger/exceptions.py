@@ -29,3 +29,18 @@ class StatusLastnameIsNull(HTTPKnownStatus):
 class StatusRepetitiveUsername(HTTPKnownStatus):
     status = '400 Username is already exist'
 
+class HTTPPasswordNotInForm(HTTPKnownStatus):
+    status = '400 Password Not In Form'
+
+
+class HTTPPasswordIsNull(HTTPKnownStatus):
+    status = '400 Password is null'
+
+
+class HTTPPasswordInvalidLength(HTTPKnownStatus):
+    status = '400 Invalid Password Length'
+
+
+class HTTPPasswordWrongPattern(HTTPKnownStatus):
+    status = '400 Password Not Complex Enough'
+

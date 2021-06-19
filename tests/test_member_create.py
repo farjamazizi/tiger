@@ -10,6 +10,7 @@ class TestMember(LocalApplicationTestCase):
         first_name = 'farjam'
         last_name = 'azizi'
         birth_date = '1996-05-10'
+        password='Far13751375'
 
         with self.given(
             'Create a member',
@@ -19,7 +20,8 @@ class TestMember(LocalApplicationTestCase):
                 userName=user_name,
                 firstName=first_name,
                 lastName=last_name,
-                birthDate=birth_date
+                birthDate=birth_date,
+                password=password,
             ),
         ):
             assert status == 200
