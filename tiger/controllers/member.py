@@ -41,13 +41,13 @@ class MemberController(ModelRestController):
     @commit
     def create(self):
         member_username_check = DBSession.query(Member) \
-              .filter(Member.user_name == context.form.get('userName')) \
-              .one_or_none()
+            .filter(Member.user_name == context.form.get('userName')) \
+            .one_or_none()
         if member_username_check is not None:
             raise StatusRepetitiveUsername()
 
         member = Member()
-        member.update_form_request()
+        member.update_from_request()
         DBSession.add(member)
         return member
 

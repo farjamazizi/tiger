@@ -6,8 +6,8 @@ class StatusInvalidStringType(HTTPKnownStatus):
 
 
 class StatusUsernameLengthInvalid(HTTPKnownStatus):
-    status = '400 Username Lenght Must Be Greater Than 3' \
-             'Characters Less than 15 Character'
+    status = '400 Username Length Must Be Greater Than 3' \
+             ' Characters and Less than 15 Character'
 
 
 class StatusUsernameIsRequired(HTTPKnownStatus):
@@ -28,7 +28,6 @@ class StatusLastnameIsNull(HTTPKnownStatus):
 
 class StatusRepetitiveUsername(HTTPKnownStatus):
     status = '400 Username is already exist'
-
 
 class HTTPPasswordNotInForm(HTTPKnownStatus):
     status = '400 Password Not In Form'

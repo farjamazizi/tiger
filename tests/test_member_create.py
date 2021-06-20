@@ -6,9 +6,9 @@ from tests.helpers import LocalApplicationTestCase
 class TestMember(LocalApplicationTestCase):
 
     def test_create(self):
-        user_name = 'farazi'
-        first_name = 'farjam'
-        last_name = 'azizi'
+        user_name = 'username 1'
+        first_name = 'firstname 1'
+        last_name = 'lastname 1'
         birth_date = '1996-05-10'
         password='Far13751375'
 
@@ -31,9 +31,6 @@ class TestMember(LocalApplicationTestCase):
             assert response.json['lastName'] == last_name
             assert response.json['birthDate'] == birth_date
 
-            when('Trying to pass without form parameters', json={})
-            assert status == '400 No Parameter Exists In The Form'
-
             when(
                 'Trying to pass null username',
                 json=given | dict(userName=None),
@@ -41,7 +38,7 @@ class TestMember(LocalApplicationTestCase):
             assert status == '400 Username is null'
 
             when('Trying to pass empty username', json=given - 'userName')
-            assert status == '400 username is required'
+            assert status == '400 Username is required'
 
             when(
                 'Trying to pass less than 3 character',
@@ -68,4 +65,6 @@ class TestMember(LocalApplicationTestCase):
                 json=given | dict(lastName=None),
             )
             assert status == '400 Lastname field is null'
+
+
 
