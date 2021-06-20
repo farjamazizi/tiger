@@ -31,38 +31,41 @@ class TestMember(LocalApplicationTestCase):
             assert response.json['lastName'] == last_name
             assert response.json['birthDate'] == birth_date
 
+            when('Trying to pass without form parameters', json={})
+            assert status == '400 No Parameter Exists In The Form'
+
             when(
-                'TRYING TO PASS NULL USERNAME',
+                'Trying to pass null username',
                 json=given | dict(userName=None),
             )
-            assert status == '400 USERNAME IS NULL'
+            assert status == '400 Username Is Null'
 
-            when('TRYING TO PASS EMPTY USERNAME', json=given - 'userName')
-            assert status == '400 USERNAME IS REQUIRED'
-
-            when(
-                'TRYING TO PASS LESS THAN 3 CHARACTER',
-                json=given | dict(userName='AB'),
-            )
-            assert status == '400 USERNAME LENGTH MUST BE GREATER THAN 3 ' \
-                             'CHARACTERS AND LESS THAN 15 CHARACTER'
+            when('Trying to pass empty username', json=given - 'userName')
+            assert status == '400 Username Is Required'
 
             when(
-                'TRYING TO PASS GREATER THAN 15 CHARACTER',
-                json=given | dict(userName='A' * 20),
+                'Trying to pass less than 3 character',
+                json=given | dict(userName='ab'),
             )
-            assert status == '400 USERNAME LENGTH MUST BE GREATER THAN 3 ' \
-                             'CHARACTERS AND LESS THAN 15 CHARACTER'
+            assert status == '400 Username Length Must Be Greater Than 3 ' \
+                             'Characters And Less Than 15 Character'
+
+            when(
+                'Trying to pass greater than 20 character',
+                json=given | dict(userName='a' * 20),
+            )
+            assert status == '400 Username Length Must Be Greater Than 3 ' \
+                             'Characters And Less Than 15 Character'
 
             when(
                 'Trying to pass null firstname',
                 json=given | dict(firstName=None),
             )
-            assert status == '400 FIRSTNAME FIELD IS NULL'
+            assert status == '400 Firstname Field Is Null'
 
             when(
                 'Trying to pass null lastname',
                 json=given | dict(lastName=None),
             )
-            assert status == '400 LASTNAME FIELD IS NULL'
+            assert status == '400 Lastname Field Is Null'
 

@@ -1,51 +1,51 @@
-from nanohttp import HTTPKnownStatus, settings
+from nanohttp import HTTPKnownStatus
 
 
 class StatusInvalidStringType(HTTPKnownStatus):
-    status = '400 INVALID TYPE FOR USERNAME'
+    status = '400 Invalid Type For Username'
 
 
 class StatusUsernameLengthInvalid(HTTPKnownStatus):
-    status = '400 USERNAME LENGTH MUST BE GREATER THAN 3' \
-             ' CHARACTERS AND LESS THAN 15 CHARACTER'
+    status = '400 Username Length Must Be Greater Than 3' \
+             ' Characters And Less Than 15 Character'
 
 
 class StatusUsernameIsRequired(HTTPKnownStatus):
-    status = '400 USERNAME IS REQUIRED'
+    status = '400 Username Is Required'
 
 
 class StatusUsernameIsNull(HTTPKnownStatus):
-    status = '400 USERNAME IS NULL'
+    status = '400 Username Is Null'
 
 
 class StatusFirstnameIsNull(HTTPKnownStatus):
-    status = '400 FIRSTNAME FIELD IS NULL'
+    status = '400 Firstname Field Is Null'
 
 
 class StatusLastnameIsNull(HTTPKnownStatus):
-    status = '400 LASTNAME FIELD IS NULL'
+    status = '400 Lastname Field Is Null'
+
+
+class HttpPasswordNotInForm(HTTPKnownStatus):
+    status = '400 Password Not In Form'
+
+
+class HttpPasswordIsNull(HTTPKnownStatus):
+    status = '400 Password Is Null'
+
+
+class HttpPasswordInvalidLength(HTTPKnownStatus):
+    status = '400 Invalid Password Length'
+
+
+class HttpPasswordWrongPattern(HTTPKnownStatus):
+    status = '400 Password Not Complex Enough'
 
 
 class StatusRepetitiveUsername(HTTPKnownStatus):
-    status = '400 USERNAME IS ALREADY EXIST'
-
-
-class HTTPPasswordNotInForm(HTTPKnownStatus):
-    status = '400 PASSWORD NOT IN FORM'
-
-
-class HTTPPasswordIsNull(HTTPKnownStatus):
-    status = '400 PASSWORD IS NULL'
-
-
-class HTTPPasswordInvalidLength(HTTPKnownStatus):
-    status = '400 INVALID PASSWORD LENGTH'
-
-
-class HTTPPasswordWrongPattern(HTTPKnownStatus):
-    status = '400 PASSWORD NOT COMPLEX ENOUGH'
+    status = '400 Username Is Already Exist'
 
 
 class StatusPreventEmptyForm(HTTPKnownStatus):
-    status = '400 NO PARAMETER EXISTS IN THE FORM'
+    status = '400 No Parameter Exists In The Form'
 

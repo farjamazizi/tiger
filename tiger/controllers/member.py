@@ -14,7 +14,7 @@ MEMBER_PASSWORD_PATTERN = re.compile(r'(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).+')
 class MemberController(ModelRestController):
 
     @json(
-        prevent_empty_form= StatusPreventEmptyForm,
+        prevent_empty_form=StatusPreventEmptyForm,
     )
     @validate(
         userName=dict(
@@ -31,11 +31,11 @@ class MemberController(ModelRestController):
             not_none=StatusLastnameIsNull,
         ),
         password=dict(
-            required=HTTPPasswordNotInForm,
-            not_none=HTTPPasswordIsNull,
-            min_length=(3, HTTPPasswordInvalidLength),
-            max_length=(15, HTTPPasswordInvalidLength),
-            pattern=(MEMBER_PASSWORD_PATTERN, HTTPPasswordWrongPattern),
+            required=HttpPasswordNotInForm,
+            not_none=HttpPasswordIsNull,
+            min_length=(3, HttpPasswordInvalidLength),
+            max_length=(15, HttpPasswordInvalidLength),
+            pattern=(MEMBER_PASSWORD_PATTERN, HttpPasswordWrongPattern),
         ),
     )
     @commit
