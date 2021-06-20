@@ -44,3 +44,7 @@ class HTTPPasswordInvalidLength(HTTPKnownStatus):
 class HTTPPasswordWrongPattern(HTTPKnownStatus):
     status = '400 Password Not Complex Enough'
 
+
+class StatusPreventEmptyForm(HTTPKnownStatus):
+    status = '400 No Parameter Exists In The Form'
+

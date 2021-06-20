@@ -14,7 +14,7 @@ MEMBER_PASSWORD_PATTERN = re.compile(r'(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).+')
 class MemberController(ModelRestController):
 
     @json(
-        prevent_empty_form='400 No Parameter Exists In The Form',
+        prevent_empty_form= StatusPreventEmptyForm,
     )
     @validate(
         userName=dict(

@@ -10,14 +10,16 @@ from .member import MemberController
 class Apiv1(RestController, JSONPatchControllerMixin):
     members = MemberController()
 
+
+    @json
     def version(self):
         return dict(version=tiger.__version__)
 
-    def get(self):
-        return dict(get=tiger.get)
+    #def get(self):
+        #return dict(get=tiger.get)
 
-    def create(self):
-        return dict(create=tiger.create)
+    #def create(self):
+        #return dict(create=tiger.create)
 
 
 class Root(RootController):
