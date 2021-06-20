@@ -6,7 +6,7 @@ class StatusInvalidStringType(HTTPKnownStatus):
 
 
 class StatusUsernameLengthInvalid(HTTPKnownStatus):
-    status = '400 Usernam Lenght Must Be Greater Than 3' \
+    status = '400 Username Lenght Must Be Greater Than 3' \
              'Characters Less than 15 Character'
 
 
