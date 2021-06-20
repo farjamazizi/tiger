@@ -8,9 +8,9 @@ dependencies = [
     'py == 1.10.0',
     'pyparsing == 2.4.7',
     'pytest == 6.2.2',
-    'bddrest == 2.6.2',
-    'nanohttp == 1.11.11',
-    'restfulpy == 3.8.0',
+    # 'bddrest == 2.6.2',
+    # 'nanohttp == 1.11.11',
+    # 'restfulpy == 3.8.0',
 ]
 
 

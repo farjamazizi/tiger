@@ -32,7 +32,7 @@ class TestMember(LocalApplicationTestCase):
             assert response.json['birthDate'] == birth_date
 
             when('Trying to pass without form parameters', json={})
-            assert status == '400 No Parameter Exists In The Form'
+            assert status == '400 Empty Form'
 
             when(
                 'Trying to pass null username',

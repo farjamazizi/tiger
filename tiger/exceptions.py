@@ -26,19 +26,19 @@ class StatusLastnameIsNull(HTTPKnownStatus):
     status = '400 Lastname Field Is Null'
 
 
-class HttpPasswordNotInForm(HTTPKnownStatus):
+class StatusPasswordNotInForm(HTTPKnownStatus):
     status = '400 Password Not In Form'
 
 
-class HttpPasswordIsNull(HTTPKnownStatus):
+class StatusPasswordIsNull(HTTPKnownStatus):
     status = '400 Password Is Null'
 
 
-class HttpPasswordInvalidLength(HTTPKnownStatus):
+class StatusPasswordInvalidLength(HTTPKnownStatus):
     status = '400 Invalid Password Length'
 
 
-class HttpPasswordWrongPattern(HTTPKnownStatus):
+class StatusPasswordWrongPattern(HTTPKnownStatus):
     status = '400 Password Not Complex Enough'
 
 
@@ -46,6 +46,6 @@ class StatusRepetitiveUsername(HTTPKnownStatus):
     status = '400 Username Is Already Exist'
 
 
-class StatusPreventEmptyForm(HTTPKnownStatus):
-    status = '400 No Parameter Exists In The Form'
+class StatusEmptyForm(HTTPKnownStatus):
+    status = '400 Empty Form'
 
