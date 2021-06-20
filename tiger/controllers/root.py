@@ -15,12 +15,6 @@ class Apiv1(RestController, JSONPatchControllerMixin):
     def version(self):
         return dict(version=tiger.__version__)
 
-    #def get(self):
-        #return dict(get=tiger.get)
-
-    #def create(self):
-        #return dict(create=tiger.create)
-
 
 class Root(RootController):
     apiv1 = Apiv1()
