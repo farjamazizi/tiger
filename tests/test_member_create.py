@@ -14,7 +14,7 @@ class TestMember(LocalApplicationTestCase):
 
         with self.given(
             'Create a member',
-            '/apiv1/members'
+            '/apiv1/members',
             'CREATE',
             json=dict(
                 userName=user_name,
