@@ -1,8 +1,14 @@
 from datetime import date
 
-from sqlalchemy import String, Date, Integer, extract
+from sqlalchemy import String, Date, Integer, extract, Enum
 from sqlalchemy.orm import column_property, relationship
 from restfulpy.orm import DeclarativeBase, Field
+
+
+statuses = [
+    'Activate',
+    'Deactivate',
+]
 
 
 class Member(DeclarativeBase):
@@ -14,6 +20,10 @@ class Member(DeclarativeBase):
     user_name = Field(String, unique=True)
     password = Field(String)
     birth_date = Field(Date)
+    status = Field(
+        Enum(*statuses, name='statuses'),
+        nullable=False,
+    )
     age = column_property(date.today().year - extract('year', birth_date))
     fullname = column_property(first_name + ' ' + last_name)
 
