@@ -6,8 +6,8 @@ from restfulpy.orm import DeclarativeBase, Field
 
 
 statuses = [
-    'Activate',
-    'Deactivate',
+    'Active',
+    'Deactive',
 ]
 
 
