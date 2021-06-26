@@ -16,7 +16,7 @@ class TestMember(LocalApplicationTestCase):
             last_name = 'lastname 2',
             birth_date='1999-05-10',
             password = 'Abc111222',
-            statuses = 'Active',
+            status = 'active',
         )
         session.add(cls.member)
         session.commit()

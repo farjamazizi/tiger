@@ -6,8 +6,8 @@ from restfulpy.orm import DeclarativeBase, Field
 
 
 member_statuses = [
-    'Active',
-    'Deactive',
+    'active',
+    'deactive',
 ]
 
 
@@ -20,7 +20,7 @@ class Member(DeclarativeBase):
     user_name = Field(String, unique=True)
     password = Field(String)
     birth_date = Field(Date)
-    statuses = Field(
+    status = Field(
         Enum(*member_statuses, name='member_statuses'),
         nullable=False,
     )
