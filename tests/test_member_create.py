@@ -10,7 +10,8 @@ class TestMember(LocalApplicationTestCase):
         first_name = 'firstname 1'
         last_name = 'lastname 1'
         birth_date = '1996-05-10'
-        password='Far13751375'
+        password = 'Far13751375'
+
 
         with self.given(
             'Create a member',
@@ -24,6 +25,7 @@ class TestMember(LocalApplicationTestCase):
                 password=password,
                 status='active',
             ),
+
         ):
             assert status == 200
             assert response.json['id'] is not None
@@ -73,7 +75,7 @@ class TestMember(LocalApplicationTestCase):
 
             when(
                 'Trying to pass null member status',
-                json=given | dict(status=None),
+                json=given | dict(status=None, userName='username2',),
             )
             assert status == '400 Status Is null'
 
