@@ -12,7 +12,6 @@ class TestMember(LocalApplicationTestCase):
         birth_date = '1996-05-10'
         password = 'Far13751375'
 
-
         with self.given(
             'Create a member',
             '/apiv1/members',
