@@ -31,6 +31,7 @@ class TestMember(LocalApplicationTestCase):
             assert response.json['firstName'] == first_name
             assert response.json['lastName'] == last_name
             assert response.json['birthDate'] == birth_date
+            assert response.json['status'] == 'active'
 
             when('Trying to pass without form parameters', json={})
             assert status == '400 Empty Form'
