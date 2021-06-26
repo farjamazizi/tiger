@@ -35,6 +35,10 @@ class MemberController(ModelRestController):
             max_length=(15, StatusPasswordInvalidLength),
             pattern=(MEMBER_PASSWORD_PATTERN, StatusPasswordWrongPattern),
         ),
+        status=dict(
+            not_none=StatusMemberStatusIsNull,
+            required=StatusMemberStatusRequired,
+        ),
     )
     @commit
     def create(self):

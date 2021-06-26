@@ -10,7 +10,7 @@ class TestMember(LocalApplicationTestCase):
         first_name = 'firstname 1'
         last_name = 'lastname 1'
         birth_date = '1996-05-10'
-        password='Far13751375'
+        password = 'Far13751375'
 
         with self.given(
             'Create a member',
@@ -22,6 +22,7 @@ class TestMember(LocalApplicationTestCase):
                 lastName=last_name,
                 birthDate=birth_date,
                 password=password,
+                status='active',
             ),
         ):
             assert status == 200
@@ -30,6 +31,7 @@ class TestMember(LocalApplicationTestCase):
             assert response.json['firstName'] == first_name
             assert response.json['lastName'] == last_name
             assert response.json['birthDate'] == birth_date
+            assert response.json['status'] == 'active'
 
             when('Trying to pass without form parameters', json={})
             assert status == '400 Empty Form'
@@ -68,4 +70,13 @@ class TestMember(LocalApplicationTestCase):
                 json=given | dict(lastName=None),
             )
             assert status == '400 Lastname Field Is Null'
+
+            when(
+                'Trying to pass null member status',
+                json=given | dict(status=None, userName='username2',),
+            )
+            assert status == '400 Status Is null'
+
+            when('Trying to pass empty MemberStatus', json=given - 'status')
+            assert status == '400 MemberStatus is Required'
 
