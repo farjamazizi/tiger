@@ -71,3 +71,9 @@ class TestMember(LocalApplicationTestCase):
             )
             assert status == '400 Lastname Field Is Null'
 
+            when(
+                'Trying to pass null member status',
+                json=given | dict(status=None),
+            )
+            assert status == '400 Status Is null'
+

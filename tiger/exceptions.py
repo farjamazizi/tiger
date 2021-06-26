@@ -49,3 +49,7 @@ class StatusRepetitiveUsername(HTTPKnownStatus):
 class StatusEmptyForm(HTTPKnownStatus):
     status = '400 Empty Form'
 
+
+class StatusMemberStatusIsNull(HTTPKnownStatus):
+    status = '400 Status Is null'
+
