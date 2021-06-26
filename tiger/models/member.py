@@ -20,8 +20,8 @@ class Member(DeclarativeBase):
     user_name = Field(String, unique=True)
     password = Field(String)
     birth_date = Field(Date)
-    status = Field(
-        Enum(*member_statuses, name='statuses'),
+    statuses = Field(
+        Enum(*member_statuses, name='member_statuses'),
         nullable=False,
     )
     age = column_property(date.today().year - extract('year', birth_date))
