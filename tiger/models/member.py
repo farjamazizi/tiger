@@ -5,7 +5,7 @@ from sqlalchemy.orm import column_property, relationship
 from restfulpy.orm import DeclarativeBase, Field
 
 
-statuses = [
+member_statuses = [
     'Active',
     'Deactive',
 ]
@@ -21,7 +21,7 @@ class Member(DeclarativeBase):
     password = Field(String)
     birth_date = Field(Date)
     status = Field(
-        Enum(*statuses, name='statuses'),
+        Enum(*member_statuses, name='statuses'),
         nullable=False,
     )
     age = column_property(date.today().year - extract('year', birth_date))
