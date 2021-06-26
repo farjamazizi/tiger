@@ -9,6 +9,9 @@ from ..exceptions import *
 
 
 MEMBER_PASSWORD_PATTERN = re.compile(r'(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).+')
+MEMBER_EMAIL_PATTERN = re.compile(
+      r'(^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$)'
+)
 
 
 class MemberController(ModelRestController):
@@ -38,6 +41,12 @@ class MemberController(ModelRestController):
         status=dict(
             not_none=StatusMemberStatusIsNull,
             required=StatusMemberStatusRequired,
+        ),
+        email=dict(
+            required=StatusEmailIsRequired,
+            not_none=StatusEmailIsNull,
+            pattern=(MEMBER_EMAIL_PATTERN, StatusInvalidEmailFormat),
+
         ),
     )
     @commit

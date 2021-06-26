@@ -24,6 +24,7 @@ class Member(DeclarativeBase):
         Enum(*member_statuses, name='member_statuses'),
         nullable=False,
     )
+    email = Field(String, unique=True, nullable=False)
     age = column_property(date.today().year - extract('year', birth_date))
     fullname = column_property(first_name + ' ' + last_name)
 

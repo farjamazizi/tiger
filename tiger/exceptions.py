@@ -57,3 +57,14 @@ class StatusMemberStatusIsNull(HTTPKnownStatus):
 class StatusMemberStatusRequired(HTTPKnownStatus):
     status = '400 MemberStatus is Required'
 
+class StatusEmailIsRequired(HTTPKnownStatus):
+    status = '400 Email Not In Form'
+
+
+class StatusEmailIsNull(HTTPKnownStatus):
+    status = '400 Email Is Null'
+
+
+class StatusInvalidEmailFormat(HTTPKnownStatus):
+    status = '400 Invalid Email Format'
+
