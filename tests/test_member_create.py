@@ -24,7 +24,6 @@ class TestMember(LocalApplicationTestCase):
                 password=password,
                 status='active',
             ),
-
         ):
             assert status == 200
             assert response.json['id'] is not None
@@ -77,4 +76,7 @@ class TestMember(LocalApplicationTestCase):
                 json=given | dict(status=None, userName='username2',),
             )
             assert status == '400 Status Is null'
+
+            when('Trying to pass empty MemberStatus', json=given - 'status')
+            assert status == '400 MemberStatus is Required'
 

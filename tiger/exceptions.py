@@ -53,3 +53,7 @@ class StatusEmptyForm(HTTPKnownStatus):
 class StatusMemberStatusIsNull(HTTPKnownStatus):
     status = '400 Status Is null'
 
+
+class StatusMemberStatusRequired(HTTPKnownStatus):
+    status = '400 MemberStatus is Required'
+

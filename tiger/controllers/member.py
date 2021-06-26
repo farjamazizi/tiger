@@ -37,6 +37,7 @@ class MemberController(ModelRestController):
         ),
         status=dict(
             not_none=StatusMemberStatusIsNull,
+            required=StatusMemberStatusRequired,
         ),
     )
     @commit
