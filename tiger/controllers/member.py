@@ -57,6 +57,12 @@ class MemberController(ModelRestController):
         if member_username_check is not None:
             raise StatusRepetitiveUsername()
 
+        member_email_check = DBSession.query(Member) \
+              .filter(Member.email == context.form.get('email')) \
+              .one_or_none()
+        if member_email_check is not None:
+            raise StatusRepetitiveEmail()
+
         member = Member()
         member.update_from_request()
         DBSession.add(member)

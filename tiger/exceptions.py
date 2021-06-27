@@ -68,3 +68,7 @@ class StatusEmailIsNull(HTTPKnownStatus):
 class StatusInvalidEmailFormat(HTTPKnownStatus):
     status = '400 Invalid Email Format'
 
+
+class StatusRepetitiveEmail(HTTPKnownStatus):
+    status = '400 Email Address Is Already Exist'
+

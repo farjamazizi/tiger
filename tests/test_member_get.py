@@ -17,6 +17,7 @@ class TestMember(LocalApplicationTestCase):
             birth_date='1999-05-10',
             password = 'Abc111222',
             status = 'active',
+            email ='farazi@yahoo.com'
         )
         session.add(cls.member)
         session.commit()
@@ -32,4 +33,5 @@ class TestMember(LocalApplicationTestCase):
             assert response.json['userName'] == self.member.user_name
             assert response.json['firstName'] == self.member.first_name
             assert response.json['lastName'] == self.member.last_name
+            assert response.json['email'] == self.member.email
 
