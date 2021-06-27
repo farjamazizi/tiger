@@ -84,7 +84,7 @@ class TestMember(LocalApplicationTestCase):
             assert status == '400 MemberStatus is Required'
 
             when('Trying to pass null email', json=given | dict(email=None))
-            assert  status == '400 Email Is Null'
+            assert status == '400 Email Is Null'
 
             when('Trying to pass empty email', json=given - 'email')
             assert status == '400 Email Not In Form'
