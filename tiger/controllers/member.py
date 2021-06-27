@@ -9,6 +9,9 @@ from ..exceptions import *
 
 
 MEMBER_PASSWORD_PATTERN = re.compile(r'(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).+')
+MEMBER_EMAIL_PATTERN = re.compile(
+      r'(^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$)'
+)
 
 
 class MemberController(ModelRestController):
@@ -39,6 +42,12 @@ class MemberController(ModelRestController):
             not_none=StatusMemberStatusIsNull,
             required=StatusMemberStatusRequired,
         ),
+        email=dict(
+            required=StatusEmailIsRequired,
+            not_none=StatusEmailIsNull,
+            pattern=(MEMBER_EMAIL_PATTERN, StatusInvalidEmailFormat),
+
+        ),
     )
     @commit
     def create(self):
@@ -47,6 +56,12 @@ class MemberController(ModelRestController):
             .one_or_none()
         if member_username_check is not None:
             raise StatusRepetitiveUsername()
+
+        member_email_check = DBSession.query(Member) \
+              .filter(Member.email == context.form.get('email')) \
+              .one_or_none()
+        if member_email_check is not None:
+            raise StatusRepetitiveEmail()
 
         member = Member()
         member.update_from_request()
