@@ -24,10 +24,13 @@ class Member(DeclarativeBase):
         Enum(*member_statuses, name='member_statuses'),
         nullable=False,
     )
-    error_reports = relationship('Error_Report', back_populates='member')
     age = column_property(date.today().year - extract('year', birth_date))
     fullname = column_property(first_name + ' ' + last_name)
 
+    error_reports = relationship(
+        'Error_Report',
+        back_populates='member',
+    )
     messages = relationship(
         'Message',
         back_populates='sender',
