@@ -1,11 +1,11 @@
 from datetime import date
 
-from sqlalchemy import String, Integer, ForeignKey
+from sqlalchemy import String, Integer, ForeignKey, DateTime
 from sqlalchemy.orm import relationship
 from restfulpy.orm import DeclarativeBase, Field
 
 
-class Error_Report(DeclarativeBase):
+class ErrorReport(DeclarativeBase):
     __tablename__ = 'error_report'
 
     id = Field(Integer, primary_key=True)
@@ -13,8 +13,8 @@ class Error_Report(DeclarativeBase):
     stack_trace = Field(String)
     status = Field(String)
     organization_id = Field(Integer)
-    created_at = Field(date)
-    modified_at = Field(date)
+    created_at = Field(DateTime)
+    modified_at = Field(DateTime)
     member_id = Field(Integer, ForeignKey('member.id'))
    
     member = relationship(

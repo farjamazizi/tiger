@@ -28,7 +28,7 @@ class Member(DeclarativeBase):
     fullname = column_property(first_name + ' ' + last_name)
 
     error_reports = relationship(
-        'Error_Report',
+        'ErrorReport',
         back_populates='member',
     )
     messages = relationship(
