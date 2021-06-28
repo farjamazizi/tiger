@@ -6,7 +6,7 @@ from tiger.models import ErrorReport
 from ..exceptions import *
 
 
-class MemberController(ModelRestController):
+class ErrorReportController(ModelRestController):
 
     @json(prevent_empty_form=StatusEmptyForm)
     @validate(
@@ -14,7 +14,7 @@ class MemberController(ModelRestController):
             required=StatusCurlIsRequired,
             not_none=StatusCurlIsNull,
         ),
-        stack_trace=dict(
+        stackTrace=dict(
             required=StatusStackTraceIsRequired,
             not_none=StatusStackTraceIsNull,
         ),
@@ -27,8 +27,8 @@ class MemberController(ModelRestController):
     @commit
     def create(self):
 
-        errorreport = ErrorReport()
-        errorreport.update_from_request()
-        DBSession.add(errorreport)
-        return errorreport
+        error_report = ErrorReport()
+        error_report.update_from_request()
+        DBSession.add(error_report)
+        return error_report
 

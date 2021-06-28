@@ -78,5 +78,5 @@ class TestMember(LocalApplicationTestCase):
             assert status == '400 Status Is null'
 
             when('Trying to pass empty MemberStatus', json=given - 'status')
-            assert status == '400 MemberStatus is Required'
+            assert status == '400 MemberStatus Is Required'
 

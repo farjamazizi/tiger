@@ -80,12 +80,3 @@ class StatusReportStatusIsRequired(HTTPKnownStatus):
 class StatusReportStatusIsNull(HTTPKnownStatus):
     status = '400 ReportStatus Is Null'
 
-
-class StatusRpetitiveCurlError(HTTPKnownStatus):
-    status = '400 CurlError Is Already Exist'
-
-class StatusRpetitiveStackTrace(HTTPKnownStatus):
-    status = '400 StatusError Is Already Exist'
-
-
-

@@ -8,7 +8,6 @@ class TestMember(LocalApplicationTestCase):
     def test_create(self):
         curl = 'http://abcd-abcdef.com/apiv1/'
         stack_trace = '{"StackTrace":"Traceback(abcd)\local'
-        status = 'Errorstatus'
         organization_id = '10'
         created_at = '2000-02-11'
         modified_at = '2001-02-11'
@@ -21,20 +20,21 @@ class TestMember(LocalApplicationTestCase):
             'CREATE',
             json=dict(
                 curl=curl,
-                stack_trace=stack_trace,
-                organization_id=organization_id,
-                created_at=created_at,
-                modified_at=modified_at,
-                member_id=member_id,
-                status='active',
+                stackTrace=stack_trace,
+                organizationId=organization_id,
+                createdAt=created_at,
+                modifiedAt=modified_at,
+                memberId=member_id,
+                status='500'
             ),
         ):
             assert status == 200
             assert response.json['id'] is not None
             assert response.json['curl'] == curl
-            assert response.json['stack_trace'] == stack_trace
-            assert response.json['organization_id'] == organization_id
-            assert response.json['created_at'] == created_at
-            assert response.json['modified_at'] == modified_at
-            assert response.json['status'] == status
+            assert response.json['stackTrace'] == stack_trace
+            assert response.json['organizationId'] == organization_id
+            assert response.json['createdAt'] == created_at
+            assert response.json['modifiedAt'] == modified_at
+            assert response.json['status'] == 'status'
+            assert response.json['memberId'] == member_id
 

@@ -5,10 +5,12 @@ from restfulpy.controllers import RootController, RestController, \
 import tiger
 
 from .member import MemberController
+from .error_report import ErrorReportController
 
 
 class Apiv1(RestController, JSONPatchControllerMixin):
     members = MemberController()
+    errorreports = ErrorReportController()
 
     @json
     def version(self):
