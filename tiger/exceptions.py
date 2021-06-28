@@ -55,5 +55,37 @@ class StatusMemberStatusIsNull(HTTPKnownStatus):
 
 
 class StatusMemberStatusRequired(HTTPKnownStatus):
-    status = '400 MemberStatus is Required'
+    status = '400 MemberStatus Is Required'
+
+
+class StatusCurlIsRequired(HTTPKnownStatus):
+    status = '400 Curl Is Required'
+
+
+class StatusCurlIsNull(HTTPKnownStatus):
+    status = '400 Curl Is Null'
+
+
+class StatusStackTraceIsRequired(HTTPKnownStatus):
+    status = '400 StackTrace Is Required'
+
+
+class StatusStackTraceIsNull(HTTPKnownStatus):
+    status = '400 StackTrace Is Null'
+
+
+class StatusReportStatusIsRequired(HTTPKnownStatus):
+    status = '400 ReportStatus Is Required'
+
+class StatusReportStatusIsNull(HTTPKnownStatus):
+    status = '400 ReportStatus Is Null'
+
+
+class StatusRpetitiveCurlError(HTTPKnownStatus):
+    status = '400 CurlError Is Already Exist'
+
+class StatusRpetitiveStackTrace(HTTPKnownStatus):
+    status = '400 StatusError Is Already Exist'
+
+
 
