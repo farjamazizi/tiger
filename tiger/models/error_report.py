@@ -1,5 +1,3 @@
-from datetime import date
-
 from sqlalchemy import String, Integer, ForeignKey, DateTime
 from sqlalchemy.orm import relationship
 from restfulpy.orm import DeclarativeBase, Field
