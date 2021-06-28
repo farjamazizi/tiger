@@ -18,7 +18,7 @@ class Error_Report(DeclarativeBase):
     member_id = Field(Integer, ForeignKey('member.id'))
    
     member = relationship(
-        'Member',
+        'Member', 
         back_populates='error_reports',
     )
 
