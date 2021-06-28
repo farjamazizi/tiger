@@ -23,6 +23,10 @@ class ErrorReportController(ModelRestController):
             not_none=StatusReportstatusIsNull,
 
         ),
+        memberId=dict(
+            required=StatusMemberidIsRequired,
+            not_none=StatusMemberidIsNull,
+        ),
     )
     @commit
     def create(self):

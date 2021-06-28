@@ -80,3 +80,10 @@ class StatusReportstatusIsRequired(HTTPKnownStatus):
 class StatusReportstatusIsNull(HTTPKnownStatus):
     status = '400 ReportStatus Is Null'
 
+class StatusMemberidIsRequired(HTTPKnownStatus):
+    status = '400 MemberId Is Required'
+
+
+class StatusMemberidIsNull(HTTPKnownStatus):
+    status = '400 MemberId Is Null'
+

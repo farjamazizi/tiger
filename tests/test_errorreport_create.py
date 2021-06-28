@@ -1,9 +1,25 @@
-from bddrest import status, response, when, given
+from bddrest import status, response, given
 
+from tiger.models.member import Member
 from tests.helpers import LocalApplicationTestCase
 
 
 class TestMember(LocalApplicationTestCase):
+
+    @classmethod
+    def mockup(cls):
+        session = cls.create_session()
+
+        cls.member = Member(
+            user_name='username 2',
+            first_name='firstname 2',
+            last_name='lastname 2',
+            birth_date='1999-05-10',
+            password='Abc111222',
+            status='active',
+        )
+        session.add(cls.member)
+        session.commit()
 
     def test_create(self):
         curl = 'http://abcd-abcdef.com/apiv1/'
@@ -11,7 +27,7 @@ class TestMember(LocalApplicationTestCase):
         organization_id = '10'
         created_at = '2000-02-11'
         modified_at = '2001-02-11'
-        member_id = '1'
+        member_id = 'member.id'
 
 
         with self.given(
