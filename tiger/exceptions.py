@@ -66,17 +66,17 @@ class StatusCurlIsNull(HTTPKnownStatus):
     status = '400 Curl Is Null'
 
 
-class StatusStackTraceIsRequired(HTTPKnownStatus):
+class StatusStacktraceIsRequired(HTTPKnownStatus):
     status = '400 StackTrace Is Required'
 
 
-class StatusStackTraceIsNull(HTTPKnownStatus):
+class StatusStacktraceIsNull(HTTPKnownStatus):
     status = '400 StackTrace Is Null'
 
 
-class StatusReportStatusIsRequired(HTTPKnownStatus):
+class StatusReportstatusIsRequired(HTTPKnownStatus):
     status = '400 ReportStatus Is Required'
 
-class StatusReportStatusIsNull(HTTPKnownStatus):
+class StatusReportstatusIsNull(HTTPKnownStatus):
     status = '400 ReportStatus Is Null'
 

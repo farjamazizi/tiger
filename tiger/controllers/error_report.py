@@ -15,12 +15,12 @@ class ErrorReportController(ModelRestController):
             not_none=StatusCurlIsNull,
         ),
         stackTrace=dict(
-            required=StatusStackTraceIsRequired,
-            not_none=StatusStackTraceIsNull,
+            required=StatusStacktraceIsRequired,
+            not_none=StatusStacktraceIsNull,
         ),
         status=dict(
-            required=StatusReportStatusIsRequired,
-            not_none=StatusReportStatusIsNull,
+            required=StatusReportstatusIsRequired,
+            not_none=StatusReportstatusIsNull,
 
         ),
     )
