@@ -9,7 +9,7 @@ class Error_Report(DeclarativeBase):
     curl = Field(String)
     stack_trace = Field(String)
     status = Field(String)
-    organization = Field(String)
+    organization = Field(Integer)
     created_at = Field(String)
     modified_at = Field(String)
     member_id = Field(Integer, ForeignKey('member.id'))
