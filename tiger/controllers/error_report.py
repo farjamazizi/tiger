@@ -26,15 +26,9 @@ class MemberController(ModelRestController):
     )
     @commit
     def create(self):
-        errorreport_curl_check = DBSession.query(ErrorReport) \
-                   .filter(ErrorReport.curl == context.form.get('curl')) \
-                   .one_or_none()
-        if errorreport_curl_check is not None:
-            raise StatusRpetitiveCurlError
 
-        errorreport_stacktrace_check = DBSession.query(ErrorReport) \
-                   .filter(ErrorReport.status == context.form.get('status')) \
-                   .one_or_none()
-        if errorreport_stacktrace_check is not None:
-            raise StatusRpetitiveStackTrace
+        errorreport = ErrorReport()
+        errorreport.update_from_request()
+        DBSession.add(errorreport)
+        return errorreport
 

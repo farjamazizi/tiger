@@ -6,9 +6,9 @@ from tests.helpers import LocalApplicationTestCase
 class TestMember(LocalApplicationTestCase):
 
     def test_create(self):
-        curl = ''
-        stack_trace = ''
-        status = ''
+        curl = 'http://abcd-abcdef.com/apiv1/'
+        stack_trace = '{"StackTrace":"Traceback(abcd)\local'
+        status = 'Errorstatus'
         organization_id = '10'
         created_at = '2000-02-11'
         modified_at = '2001-02-11'
@@ -16,8 +16,8 @@ class TestMember(LocalApplicationTestCase):
 
 
         with self.given(
-            'Create a member',
-            '/apiv1/members',
+            'Create a errorreport',
+            '/apiv1/errorreports',
             'CREATE',
             json=dict(
                 curl=curl,
@@ -37,3 +37,4 @@ class TestMember(LocalApplicationTestCase):
             assert response.json['created_at'] == created_at
             assert response.json['modified_at'] == modified_at
             assert response.json['status'] == status
+
