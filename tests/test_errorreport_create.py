@@ -4,7 +4,7 @@ from tiger.models.member import Member
 from tests.helpers import LocalApplicationTestCase
 
 
-class TestMember(LocalApplicationTestCase):
+class TestErrorReport(LocalApplicationTestCase):
 
     @classmethod
     def mockup(cls):
