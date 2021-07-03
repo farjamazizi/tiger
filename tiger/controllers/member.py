@@ -61,3 +61,4 @@ class MemberController(ModelRestController):
             raise HTTPNotFound()
         return member
 
+

@@ -55,5 +55,35 @@ class StatusMemberStatusIsNull(HTTPKnownStatus):
 
 
 class StatusMemberStatusRequired(HTTPKnownStatus):
-    status = '400 MemberStatus is Required'
+    status = '400 MemberStatus Is Required'
+
+
+class StatusCurlIsRequired(HTTPKnownStatus):
+    status = '400 Curl Is Required'
+
+
+class StatusCurlIsNull(HTTPKnownStatus):
+    status = '400 Curl Is Null'
+
+
+class StatusStacktraceIsRequired(HTTPKnownStatus):
+    status = '400 StackTrace Is Required'
+
+
+class StatusStacktraceIsNull(HTTPKnownStatus):
+    status = '400 StackTrace Is Null'
+
+
+class StatusReportstatusIsRequired(HTTPKnownStatus):
+    status = '400 ReportStatus Is Required'
+
+class StatusReportstatusIsNull(HTTPKnownStatus):
+    status = '400 ReportStatus Is Null'
+
+class StatusMemberidIsRequired(HTTPKnownStatus):
+    status = '400 MemberId Is Required'
+
+
+class StatusMemberidIsNull(HTTPKnownStatus):
+    status = '400 MemberId Is Null'
 
